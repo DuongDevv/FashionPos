@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Báo Cáo - Fashion Admin</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        body { font-family: 'Inter', sans-serif; }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <div class="flex h-screen overflow-hidden">
+        <aside class="w-64 bg-slate-900 text-white flex-shrink-0 hidden md:flex flex-col">
+            <div class="p-6 text-2xl font-bold text-center border-b border-slate-700">
+                FASHION <span class="text-blue-400">POS</span>
+            </div>
+            <nav class="flex-1 p-4 space-y-2">
+                <a href="index.html" class="flex items-center p-3 hover:bg-slate-800 rounded-lg transition"><i class="fa-solid fa-chart-line w-6"></i> Tổng quan</a>
+                <a href="san-pham.html" class="flex items-center p-3 hover:bg-slate-800 rounded-lg transition"><i class="fa-solid fa-shirt w-6"></i> Sản phẩm</a>
+                <a href="don-hang.html" class="flex items-center p-3 hover:bg-slate-800 rounded-lg transition"><i class="fa-solid fa-cart-shopping w-6"></i> Đơn hàng</a>
+                <a href="khach-hang.html" class="flex items-center p-3 hover:bg-slate-800 rounded-lg transition"><i class="fa-solid fa-users w-6"></i> Khách hàng</a>
+                <a href="bao-cao.html" class="flex items-center p-3 bg-blue-600 rounded-lg transition"><i class="fa-solid fa-file-invoice-dollar w-6"></i> Báo cáo</a>
+                <a href="cai-dat.html" class="flex items-center p-3 hover:bg-slate-800 rounded-lg transition"><i class="fa-solid fa-gear w-6"></i> Cài đặt</a>
+            </nav>
+        </aside>
+
+        <main class="flex-1 overflow-y-auto">
+            <header class="bg-white shadow-sm p-4 flex justify-between items-center sticky top-0 z-10">
+                <h2 class="text-xl font-semibold text-gray-800">Thống Kê Kinh Doanh</h2>
+                <input type="month" class="border rounded-lg px-3 py-1 text-sm focus:ring-2 focus:ring-blue-500 outline-none">
+            </header>
+
+            <div class="p-6 space-y-6">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="bg-white p-6 rounded-xl shadow-sm border-l-4 border-blue-500">
+                        <p class="text-xs text-gray-400 font-bold uppercase">Doanh thu tháng</p>
+                        <h3 class="text-2xl font-bold">450.000.000đ</h3>
+                    </div>
+                    <div class="bg-white p-6 rounded-xl shadow-sm border-l-4 border-green-500">
+                        <p class="text-xs text-gray-400 font-bold uppercase">Lợi nhuận gộp</p>
+                        <h3 class="text-2xl font-bold">182.500.000đ</h3>
+                    </div>
+                    <div class="bg-white p-6 rounded-xl shadow-sm border-l-4 border-orange-500">
+                        <p class="text-xs text-gray-400 font-bold uppercase">Tỉ lệ hủy đơn</p>
+                        <h3 class="text-2xl font-bold text-red-500">2.4%</h3>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                    <div class="bg-white p-6 rounded-xl shadow-sm">
+                        <h4 class="font-bold mb-4 text-gray-700">Top 5 Sản Phẩm Bán Chạy</h4>
+                        <div class="space-y-4">
+                            <div class="flex justify-between items-center">
+                                <span class="text-sm">Áo sơ mi Oxford</span>
+                                <span class="font-bold">120 sp</span>
+                            </div>
+                            <div class="w-full bg-gray-100 h-2 rounded-full"><div class="bg-blue-500 h-2 rounded-full w-[90%]"></div></div>
+                            
+                            <div class="flex justify-between items-center">
+                                <span class="text-sm">Quần Jeans Slimfit</span>
+                                <span class="font-bold">85 sp</span>
+                            </div>
+                            <div class="w-full bg-gray-100 h-2 rounded-full"><div class="bg-blue-500 h-2 rounded-full w-[65%]"></div></div>
+                        </div>
+                    </div>
+
+                    <div class="bg-white p-6 rounded-xl shadow-sm flex flex-col justify-center">
+                        <h4 class="font-bold mb-4 text-gray-700">Cơ Cấu Doanh Thu</h4>
+                        <div class="flex justify-center items-center h-40">
+                             <div class="w-32 h-32 rounded-full border-[16px] border-blue-500 border-t-orange-400 border-r-green-400 animate-spin-slow"></div>
+                        </div>
+                        <div class="flex justify-around mt-4 text-xs">
+                            <span><i class="fa-solid fa-circle text-blue-500"></i> Áo</span>
+                            <span><i class="fa-solid fa-circle text-orange-400"></i> Quần</span>
+                            <span><i class="fa-solid fa-circle text-green-400"></i> Phụ kiện</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Khách Hàng - Fashion Admin</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="bg-gray-50">
+    <div class="flex h-screen overflow-hidden">
+        <aside class="w-64 bg-slate-900 text-white flex-shrink-0 hidden md:flex flex-col">
+            <div class="p-6 text-2xl font-bold text-center border-b border-slate-700">FASHION POS</div>
+            <nav class="flex-1 p-4 space-y-2">
+                <a href="index.html" class="flex items-center p-3 hover:bg-slate-800 rounded-lg transition"><i class="fa-solid fa-chart-line w-6"></i> Tổng quan</a>
+                <a href="san-pham.html" class="flex items-center p-3 hover:bg-slate-800 rounded-lg transition"><i class="fa-solid fa-shirt w-6"></i> Sản phẩm</a>
+                <a href="don-hang.html" class="flex items-center p-3 hover:bg-slate-800 rounded-lg transition"><i class="fa-solid fa-cart-shopping w-6"></i> Đơn hàng</a>
+                <a href="khach-hang.html" class="flex items-center p-3 bg-blue-600 rounded-lg transition"><i class="fa-solid fa-users w-6"></i> Khách hàng</a>
+                <a href="bao-cao.html" class="flex items-center p-3 hover:bg-slate-800 rounded-lg transition"><i class="fa-solid fa-file-invoice-dollar w-6"></i> Báo cáo</a>
+                <a href="cai-dat.html" class="flex items-center p-3 hover:bg-slate-800 rounded-lg transition"><i class="fa-solid fa-gear w-6"></i> Cài đặt</a>
+            </nav>
+        </aside>
+
+        <main class="flex-1 p-6 space-y-6">
+            <h2 class="text-2xl font-bold text-gray-800">Quản Lý Khách Hàng</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="bg-white p-6 rounded-xl border flex items-center justify-between">
+                    <div>
+                        <p class="text-gray-400 text-sm">Khách hàng thân thiết</p>
+                        <p class="text-3xl font-black">1.256</p>
+                    </div>
+                    <i class="fa-solid fa-user-check text-4xl text-blue-500 opacity-20"></i>
+                </div>
+                <div class="bg-white p-6 rounded-xl border flex items-center justify-between">
+                    <div>
+                        <p class="text-gray-400 text-sm">Điểm thưởng đã cấp</p>
+                        <p class="text-3xl font-black">450k</p>
+                    </div>
+                    <i class="fa-solid fa-gem text-4xl text-purple-500 opacity-20"></i>
+                </div>
+            </div>
+            <div class="bg-white rounded-xl shadow-sm border p-6">
+                <p class="text-center text-gray-400 py-12 italic">Danh sách khách hàng chi tiết đang được tải...</p>
+            </div>
+        </main>
+    </div>
+</body>
+</html>
