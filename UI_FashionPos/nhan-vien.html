@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quản Lý Nhân Viên - Fashion Admin</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        body { font-family: 'Inter', sans-serif; }
+    </style>
+</head>
+<body class="bg-gray-50">
+
+    <div class="flex h-screen overflow-hidden">
+        <aside class="w-64 bg-slate-900 text-white flex-shrink-0 hidden md:flex flex-col">
+            <div class="p-6 text-2xl font-bold text-center border-b border-slate-700 uppercase tracking-widest">
+                FASHION <span class="text-blue-400">POS</span>
+            </div>
+            <nav class="flex-1 p-4 space-y-2 overflow-y-auto">
+                <a href="index.html" class="flex items-center p-3 hover:bg-slate-800 rounded-lg transition"><i class="fa-solid fa-chart-line w-6"></i> Tổng quan</a>
+                <a href="san-pham.html" class="flex items-center p-3 hover:bg-slate-800 rounded-lg transition"><i class="fa-solid fa-shirt w-6"></i> Sản phẩm</a>
+                <a href="don-hang.html" class="flex items-center p-3 hover:bg-slate-800 rounded-lg transition"><i class="fa-solid fa-cart-shopping w-6"></i> Đơn hàng</a>
+                <a href="khach-hang.html" class="flex items-center p-3 hover:bg-slate-800 rounded-lg transition"><i class="fa-solid fa-users w-6"></i> Khách hàng</a>
+                <a href="nhan-vien.html" class="flex items-center p-3 bg-blue-600 rounded-lg transition"><i class="fa-solid fa-user-tie w-6"></i> Nhân viên</a>
+                <a href="bao-cao.html" class="flex items-center p-3 hover:bg-slate-800 rounded-lg transition"><i class="fa-solid fa-file-invoice-dollar w-6"></i> Báo cáo</a>
+                <a href="cai-dat.html" class="flex items-center p-3 hover:bg-slate-800 rounded-lg transition"><i class="fa-solid fa-gear w-6"></i> Cài đặt</a>
+            </nav>
+        </aside>
+
+        <main class="flex-1 overflow-y-auto">
+            <header class="bg-white shadow-sm p-4 flex justify-between items-center sticky top-0 z-10">
+                <h2 class="text-xl font-semibold text-gray-800">Quản Lý Nhân Sự</h2>
+                <button class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition flex items-center shadow-lg shadow-blue-200">
+                    <i class="fa-solid fa-plus mr-2"></i> Thêm nhân viên mới
+                </button>
+            </header>
+
+            <div class="p-6 space-y-6">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="bg-white p-6 rounded-xl border border-gray-100 shadow-sm flex items-center space-x-4">
+                        <div class="p-3 bg-blue-50 text-blue-600 rounded-full"><i class="fa-solid fa-users-gear"></i></div>
+                        <div>
+                            <p class="text-sm text-gray-500">Tổng nhân sự</p>
+                            <p class="text-xl font-bold">12 nhân viên</p>
+                        </div>
+                    </div>
+                    <div class="bg-white p-6 rounded-xl border border-gray-100 shadow-sm flex items-center space-x-4">
+                        <div class="p-3 bg-green-50 text-green-600 rounded-full"><i class="fa-solid fa-clock"></i></div>
+                        <div>
+                            <p class="text-sm text-gray-500">Đang làm việc</p>
+                            <p class="text-xl font-bold">04 người</p>
+                        </div>
+                    </div>
+                    <div class="bg-white p-6 rounded-xl border border-gray-100 shadow-sm flex items-center space-x-4">
+                        <div class="p-3 bg-orange-50 text-orange-600 rounded-full"><i class="fa-solid fa-user-clock"></i></div>
+                        <div>
+                            <p class="text-sm text-gray-500">Xin nghỉ hôm nay</p>
+                            <p class="text-xl font-bold">01 người</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden">
+                    <div class="p-4 bg-gray-50 border-b flex justify-between items-center">
+                        <h3 class="font-bold text-gray-700 uppercase text-xs tracking-wider">Danh sách nhân viên</h3>
+                        <div class="relative">
+                            <input type="text" placeholder="Tìm tên nhân viên..." class="pl-8 pr-4 py-1 border rounded-lg text-sm outline-none focus:ring-2 focus:ring-blue-400">
+                            <i class="fa-solid fa-magnifying-glass absolute left-2.5 top-2 text-gray-400 text-xs"></i>
+                        </div>
+                    </div>
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-left">
+                            <thead class="bg-gray-50 text-gray-400 text-[10px] uppercase font-bold border-b">
+                                <tr>
+                                    <th class="px-6 py-4">Nhân viên</th>
+                                    <th class="px-6 py-4">Chức vụ</th>
+                                    <th class="px-6 py-4">Số điện thoại</th>
+                                    <th class="px-6 py-4">Trạng thái</th>
+                                    <th class="px-6 py-4 text-center">Thao tác</th>
+                                </tr>
+                            </thead>
+                            <tbody class="text-sm divide-y divide-gray-100">
+                                <tr class="hover:bg-gray-50 transition">
+                                    <td class="px-6 py-4 flex items-center space-x-3">
+                                        <div class="w-9 h-9 rounded-full bg-slate-200 border-2 border-white shadow-sm flex items-center justify-center font-bold text-slate-600">QT</div>
+                                        <div>
+                                            <p class="font-semibold text-gray-800">Lê Quốc Tuấn</p>
+                                            <p class="text-[10px] text-gray-400 font-mono">ID: NV001</p>
+                                        </div>
+                                    </td>
+                                    <td class="px-6 py-4 text-gray-600 font-medium">Quản lý cửa hàng</td>
+                                    <td class="px-6 py-4 text-gray-500 italic">0902 555 xxx</td>
+                                    <td class="px-6 py-4">
+                                        <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800">
+                                            <span class="w-1.5 h-1.5 mr-1.5 bg-green-500 rounded-full"></span> Đang làm
+                                        </span>
+                                    </td>
+                                    <td class="px-6 py-4 text-center space-x-3">
+                                        <button class="text-blue-500 hover:text-blue-700" title="Sửa quyền hạn"><i class="fa-solid fa-user-shield"></i></button>
+                                        <button class="text-red-400 hover:text-red-600"><i class="fa-solid fa-trash-can"></i></button>
+                                    </td>
+                                </tr>
+                                <tr class="hover:bg-gray-50 transition">
+                                    <td class="px-6 py-4 flex items-center space-x-3">
+                                        <div class="w-9 h-9 rounded-full bg-pink-100 border-2 border-white shadow-sm flex items-center justify-center font-bold text-pink-600">MH</div>
+                                        <div>
+                                            <p class="font-semibold text-gray-800">Phạm Minh Huyền</p>
+                                            <p class="text-[10px] text-gray-400 font-mono">ID: NV005</p>
+                                        </div>
+                                    </td>
+                                    <td class="px-6 py-4 text-gray-600">Nhân viên bán hàng</td>
+                                    <td class="px-6 py-4 text-gray-500 italic">0933 123 xxx</td>
+                                    <td class="px-6 py-4">
+                                        <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-gray-100 text-gray-600">
+                                            <span class="w-1.5 h-1.5 mr-1.5 bg-gray-400 rounded-full"></span> Đang nghỉ
+                                        </span>
+                                    </td>
+                                    <td class="px-6 py-4 text-center space-x-3">
+                                        <button class="text-blue-500 hover:text-blue-700"><i class="fa-solid fa-user-shield"></i></button>
+                                        <button class="text-red-400 hover:text-red-600"><i class="fa-solid fa-trash-can"></i></button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+</body>
+</html>
