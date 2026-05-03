@@ -3,47 +3,133 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Khách Hàng - Fashion Admin</title>
+    <title>Quản Lý Khách Hàng - Fashion Admin</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        body { font-family: 'Inter', sans-serif; }
+    </style>
 </head>
 <body class="bg-gray-50">
+
     <div class="flex h-screen overflow-hidden">
         <aside class="w-64 bg-slate-900 text-white flex-shrink-0 hidden md:flex flex-col">
-            <div class="p-6 text-2xl font-bold text-center border-b border-slate-700">FASHION POS</div>
+            <div class="p-6 text-2xl font-bold text-center border-b border-slate-700">FASHION <span class="text-blue-400">POS</span></div>
             <nav class="flex-1 p-4 space-y-2">
                 <a href="index.html" class="flex items-center p-3 hover:bg-slate-800 rounded-lg transition"><i class="fa-solid fa-chart-line w-6"></i> Tổng quan</a>
-                <a href="san-pham.html" class="flex items-center p-3 hover:bg-slate-800 rounded-lg transition"><i class="fa-solid fa-shirt w-6"></i> Sản phẩm</a>
-                <a href="don-hang.html" class="flex items-center p-3 hover:bg-slate-800 rounded-lg transition"><i class="fa-solid fa-cart-shopping w-6"></i> Đơn hàng</a>
+                <a href="quan-ly-kho.html" class="flex items-center p-3 hover:bg-slate-800 rounded-lg transition"><i class="fa-solid fa-boxes-stacked w-6"></i> Quản lý kho</a>
                 <a href="khach-hang.html" class="flex items-center p-3 bg-blue-600 rounded-lg transition"><i class="fa-solid fa-users w-6"></i> Khách hàng</a>
-                <a href="nhan-vien.html" class="flex items-center p-3 hover:bg-slate-800 rounded-lg transition"><i class="fa-solid fa-user-tie w-6"></i> Nhân viên</a>
-                <a href="bao-cao.html" class="flex items-center p-3 hover:bg-slate-800 rounded-lg transition"><i class="fa-solid fa-file-invoice-dollar w-6"></i> Báo cáo</a>
-                <a href="cai-dat.html" class="flex items-center p-3 hover:bg-slate-800 rounded-lg transition"><i class="fa-solid fa-gear w-6"></i> Cài đặt</a>
+                <a href="ban-hang.html" class="flex items-center p-3 hover:bg-slate-800 rounded-lg transition"><i class="fa-solid fa-cash-register w-6"></i> Bán hàng</a>
             </nav>
         </aside>
 
-        <main class="flex-1 p-6 space-y-6">
-            <h2 class="text-2xl font-bold text-gray-800">Quản Lý Khách Hàng</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div class="bg-white p-6 rounded-xl border flex items-center justify-between">
-                    <div>
-                        <p class="text-gray-400 text-sm">Khách hàng thân thiết</p>
-                        <p class="text-3xl font-black">1.256</p>
-                    </div>
-                    <i class="fa-solid fa-user-check text-4xl text-blue-500 opacity-20"></i>
+        <main class="flex-1 overflow-y-auto">
+            <header class="bg-white shadow-sm p-4 flex justify-between items-center sticky top-0 z-10">
+                <h2 class="text-xl font-semibold text-gray-800">Danh Sách Khách Hàng</h2>
+                <button onclick="openModal('add')" class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition flex items-center shadow-lg shadow-blue-200">
+                    <i class="fa-solid fa-plus mr-2"></i> Thêm khách hàng
+                </button>
+            </header>
+
+            <div class="p-6">
+                <div class="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden">
+                    <table class="w-full text-left">
+                        <thead class="bg-gray-50 text-gray-500 text-xs uppercase font-bold border-b">
+                            <tr>
+                                <th class="px-6 py-4">Khách hàng</th>
+                                <th class="px-6 py-4">Số điện thoại</th>
+                                <th class="px-6 py-4">Nhóm khách</th>
+                                <th class="px-6 py-4 text-right">Thao tác</th>
+                            </tr>
+                        </thead>
+                        <tbody class="text-sm divide-y">
+                            <tr class="hover:bg-gray-50">
+                                <td class="px-6 py-4">
+                                    <p class="font-bold text-gray-800" id="name-1">Nguyễn Văn A</p>
+                                    <p class="text-[10px] text-gray-400">ID: KH001</p>
+                                </td>
+                                <td class="px-6 py-4 text-gray-600" id="phone-1">0901 234 567</td>
+                                <td class="px-6 py-4">
+                                    <span class="px-2 py-0.5 bg-yellow-100 text-yellow-700 rounded text-[10px] font-black uppercase" id="type-1">VIP Gold</span>
+                                </td>
+                                <td class="px-6 py-4 text-right space-x-2">
+                                    <button onclick="openModal('edit', 1)" class="text-blue-500 hover:bg-blue-50 p-2 rounded-lg transition" title="Chỉnh sửa">
+                                        <i class="fa-solid fa-user-pen"></i>
+                                    </button>
+                                    <button class="text-red-400 hover:bg-red-50 p-2 rounded-lg transition" title="Xóa">
+                                        <i class="fa-solid fa-trash"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
-                <div class="bg-white p-6 rounded-xl border flex items-center justify-between">
-                    <div>
-                        <p class="text-gray-400 text-sm">Điểm thưởng đã cấp</p>
-                        <p class="text-3xl font-black">450k</p>
-                    </div>
-                    <i class="fa-solid fa-gem text-4xl text-purple-500 opacity-20"></i>
-                </div>
-            </div>
-            <div class="bg-white rounded-xl shadow-sm border p-6">
-                <p class="text-center text-gray-400 py-12 italic">Danh sách khách hàng chi tiết đang được tải...</p>
             </div>
         </main>
     </div>
+
+    <div id="customerModal" class="hidden fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-4 backdrop-blur-sm">
+        <div class="bg-white w-full max-w-md rounded-2xl shadow-2xl overflow-hidden animate-in fade-in zoom-in duration-200">
+            <div class="px-6 py-4 border-b bg-gray-50 flex justify-between items-center">
+                <h3 id="modalTitle" class="font-black text-gray-700 uppercase tracking-tight">Thêm khách hàng</h3>
+                <button onclick="closeModal()" class="text-gray-400 hover:text-gray-600 text-2xl">&times;</button>
+            </div>
+
+            <form class="p-6 space-y-4">
+                <div class="space-y-1">
+                    <label class="text-[10px] font-bold text-gray-400 uppercase">Họ và tên</label>
+                    <input type="text" id="input-name" placeholder="Nguyễn Văn A" class="w-full border rounded-xl px-4 py-2 text-sm focus:ring-2 focus:ring-blue-500 outline-none transition">
+                </div>
+                <div class="space-y-1">
+                    <label class="text-[10px] font-bold text-gray-400 uppercase">Số điện thoại</label>
+                    <input type="text" id="input-phone" placeholder="09xx xxx xxx" class="w-full border rounded-xl px-4 py-2 text-sm focus:ring-2 focus:ring-blue-500 outline-none transition">
+                </div>
+                <div class="space-y-1">
+                    <label class="text-[10px] font-bold text-gray-400 uppercase">Phân nhóm khách hàng</label>
+                    <select id="input-type" class="w-full border rounded-xl px-4 py-2 text-sm focus:ring-2 focus:ring-blue-500 outline-none transition bg-white">
+                        <option value="Thành viên">Thành viên mới</option>
+                        <option value="VIP Gold">VIP Gold</option>
+                        <option value="VIP Diamond">VIP Diamond</option>
+                    </select>
+                </div>
+
+                <div class="flex justify-end space-x-3 pt-4">
+                    <button type="button" onclick="closeModal()" class="px-4 py-2 text-sm font-bold text-gray-400 hover:underline">Hủy</button>
+                    <button type="submit" class="bg-blue-600 text-white px-6 py-2 rounded-xl font-black text-xs uppercase tracking-widest shadow-lg shadow-blue-100 hover:bg-blue-700 transition">
+                        Lưu thông tin
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        function openModal(mode, id = null) {
+            const modal = document.getElementById('customerModal');
+            const title = document.getElementById('modalTitle');
+            
+            modal.classList.remove('hidden');
+
+            if (mode === 'edit') {
+                title.innerText = "Chỉnh sửa khách hàng";
+                // Giả lập việc đổ dữ liệu từ bảng vào form
+                document.getElementById('input-name').value = document.getElementById('name-' + id).innerText;
+                document.getElementById('input-phone').value = document.getElementById('phone-' + id).innerText;
+                document.getElementById('input-type').value = document.getElementById('type-' + id).innerText;
+            } else {
+                title.innerText = "Thêm khách hàng mới";
+                // Reset form khi thêm mới
+                document.getElementById('input-name').value = "";
+                document.getElementById('input-phone').value = "";
+                document.getElementById('input-type').value = "Thành viên";
+            }
+        }
+
+        function closeModal() {
+            document.getElementById('customerModal').classList.add('hidden');
+        }
+    </script>
+
 </body>
 </html>

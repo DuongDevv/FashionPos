@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hệ Thống Bán Hàng POS - Fashion Pro</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        body { font-family: 'Inter', sans-serif; }
+        .product-grid { height: calc(100vh - 140px); }
+        .cart-list { height: calc(100vh - 380px); }
+        ::-webkit-scrollbar { width: 4px; }
+        ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 10px; }
+    </style>
+</head>
+<body class="bg-slate-100 overflow-hidden">
+
+    <div class="flex h-screen">
+        <div class="flex-1 flex flex-col p-4 space-y-4">
+            <div class="flex space-x-3">
+                <a href="index.html" class="bg-white p-3 rounded-2xl shadow-sm hover:bg-slate-900 hover:text-white transition group">
+                    <i class="fa-solid fa-arrow-left"></i>
+                </a>
+                <div class="relative flex-1">
+                    <input type="text" placeholder="Tìm tên hoặc quét mã vạch (F1)..." 
+                           class="w-full pl-12 pr-4 py-3 rounded-2xl shadow-sm border-none focus:ring-2 focus:ring-blue-500 outline-none font-medium">
+                    <i class="fa-solid fa-barcode absolute left-4 top-4 text-slate-400 text-xl"></i>
+                </div>
+            </div>
+
+            <div class="product-grid overflow-y-auto grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 pr-2">
+                <div onclick="addToCart('Áo Blazer Hàn Quốc', 850000)" class="bg-white p-3 rounded-3xl shadow-sm hover:shadow-xl transition-all cursor-pointer border-2 border-transparent hover:border-blue-500 group">
+                    <div class="aspect-[3/4] bg-slate-100 rounded-2xl mb-3 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1591047139829-d91aecb6caea?w=400" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                    </div>
+                    <h4 class="text-xs font-bold text-slate-800 truncate">Áo Blazer Hàn Quốc</h4>
+                    <p class="text-blue-600 font-black text-sm mt-1">850.000đ</p>
+                </div>
+                </div>
+        </div>
+
+        <div class="w-[420px] bg-white shadow-2xl flex flex-col border-l border-slate-200">
+            <div class="p-4 border-b border-slate-50">
+                <div class="flex items-center justify-between bg-blue-50/50 p-4 rounded-2xl border border-blue-100">
+                    <div class="flex items-center space-x-3">
+                        <div class="w-10 h-10 bg-blue-600 text-white rounded-full flex items-center justify-center shadow-lg shadow-blue-200">
+                            <i class="fa-solid fa-user text-xs"></i>
+                        </div>
+                        <div>
+                            <p id="display-cust-name" class="text-xs font-black text-slate-700 uppercase">Khách lẻ</p>
+                            <p class="text-[10px] text-blue-500 font-bold">Điểm: 0</p>
+                        </div>
+                    </div>
+                    <button onclick="toggleModal('modalKhachHang', true)" class="text-[10px] font-black text-blue-600 hover:underline uppercase tracking-tighter">+ Chọn khách</button>
+                </div>
+            </div>
+
+            <div id="cart-items" class="cart-list overflow-y-auto p-4 space-y-4">
+                <div class="text-center py-10 text-slate-300">
+                    <i class="fa-solid fa-cart-shopping text-4xl mb-2"></i>
+                    <p class="text-xs">Chưa có sản phẩm nào</p>
+                </div>
+            </div>
+
+            <div class="p-6 bg-slate-900 text-white rounded-t-[40px] mt-auto shadow-2xl">
+                <div class="flex justify-between items-end mb-6">
+                    <div>
+                        <p class="text-[10px] uppercase tracking-widest text-slate-400 font-bold">Tổng thanh toán</p>
+                        <p id="cart-total-text" class="text-4xl font-black text-white">0đ</p>
+                    </div>
+                    <div class="text-right">
+                        <p class="text-[10px] text-slate-400 font-bold">Số lượng: <span id="cart-count">0</span></p>
+                    </div>
+                </div>
+                
+                <div class="grid grid-cols-2 gap-3">
+                    <button class="py-4 bg-slate-800 rounded-2xl font-bold text-[10px] uppercase tracking-widest hover:bg-slate-700 transition">Tạm tính</button>
+                    <button onclick="openPaymentModal()" class="py-4 bg-blue-500 rounded-2xl font-black text-xs uppercase tracking-widest shadow-lg shadow-blue-500/30 hover:bg-blue-400 transition">Thanh toán (F2)</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="modalKhachHang" class="hidden fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-[70] flex items-center justify-center p-4">
+        <div class="bg-white w-full max-w-sm rounded-[32px] p-6 shadow-2xl animate-in fade-in zoom-in duration-200">
+            <h3 class="font-black text-slate-800 uppercase text-center mb-4">Tìm khách hàng</h3>
+            <input type="text" placeholder="Số điện thoại..." class="w-full px-5 py-3 rounded-2xl border-2 border-slate-100 outline-none focus:border-blue-500 mb-4 font-bold">
+            <div class="space-y-2 mb-6">
+                <div onclick="selectCustomer('Nguyễn Văn An')" class="p-4 rounded-2xl border hover:bg-blue-50 cursor-pointer transition">
+                    <p class="text-sm font-bold">Nguyễn Văn An</p>
+                    <p class="text-[10px] text-slate-400">0905.123.456</p>
+                </div>
+            </div>
+            <button onclick="toggleModal('modalKhachHang', false)" class="w-full py-3 text-slate-400 font-bold text-xs uppercase">Đóng</button>
+        </div>
+    </div>
+
+    <div id="paymentModal" class="hidden fixed inset-0 bg-slate-900/80 backdrop-blur-md z-[80] flex items-center justify-center p-4">
+        <div class="bg-white w-full max-w-md rounded-[40px] overflow-hidden shadow-2xl animate-in slide-in-from-bottom-10 duration-300">
+            <div class="p-8 space-y-6">
+                <div class="text-center">
+                    <p class="text-[10px] font-black text-blue-500 uppercase tracking-[0.3em] mb-2">Thanh toán đơn hàng</p>
+                    <h2 id="modal-pay-total" class="text-5xl font-black text-slate-800 tracking-tighter">0đ</h2>
+                </div>
+
+                <div class="space-y-4">
+                    <div>
+                        <div class="flex justify-between text-[10px] font-black text-slate-400 uppercase mb-2 px-2">
+                            <span>Tiền khách đưa</span>
+                            <span class="text-blue-500 cursor-pointer" onclick="quickMoney(1000000)">1 Triệu</span>
+                        </div>
+                        <input type="text" id="input-guest-money" oninput="calculateChange()" class="w-full text-4xl font-black text-center py-5 bg-slate-50 rounded-[24px] border-2 border-transparent focus:border-blue-500 outline-none transition" placeholder="0">
+                    </div>
+
+                    <div class="flex justify-between items-center bg-orange-50 p-4 rounded-2xl">
+                        <span class="text-xs font-bold text-orange-600 uppercase">Tiền thừa trả khách:</span>
+                        <span id="text-change" class="text-xl font-black text-orange-600 tracking-tight">0đ</span>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-2 gap-4">
+                    <button onclick="closePaymentModal()" class="py-4 font-bold text-slate-400 uppercase text-[10px] tracking-widest">Hủy bỏ</button>
+                    <button onclick="completeSale()" class="py-4 bg-slate-900 text-white rounded-2xl font-black uppercase text-[10px] tracking-widest shadow-xl">Xác nhận đơn</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let cart = [];
+        let total = 0;
+
+        // Thêm hàng vào giỏ
+        function addToCart(name, price) {
+            cart.push({ name, price });
+            updateCart();
+        }
+
+        // Cập nhật giao diện giỏ hàng
+        function updateCart() {
+            const container = document.getElementById('cart-items');
+            const count = document.getElementById('cart-count');
+            const totalText = document.getElementById('cart-total-text');
+            
+            if(cart.length === 0) {
+                container.innerHTML = `<div class="text-center py-10 text-slate-300"><i class="fa-solid fa-cart-shopping text-4xl mb-2"></i><p class="text-xs">Chưa có sản phẩm nào</p></div>`;
+                total = 0;
+            } else {
+                container.innerHTML = cart.map((item, index) => `
+                    <div class="flex justify-between items-center animate-in fade-in slide-in-from-right-4">
+                        <div>
+                            <p class="text-sm font-bold text-slate-800">${item.name}</p>
+                            <p class="text-[10px] text-slate-400 font-bold">${item.price.toLocaleString()}đ</p>
+                        </div>
+                        <button onclick="removeItem(${index})" class="text-slate-300 hover:text-red-500 transition"><i class="fa-solid fa-circle-xmark"></i></button>
+                    </div>
+                `).join('');
+                total = cart.reduce((sum, item) => sum + item.price, 0);
+            }
+            
+            count.innerText = cart.length;
+            totalText.innerText = total.toLocaleString() + 'đ';
+        }
+
+        function removeItem(index) {
+            cart.splice(index, 1);
+            updateCart();
+        }
+
+        // Modal xử lý
+        function toggleModal(id, show) {
+            document.getElementById(id).classList.toggle('hidden', !show);
+        }
+
+        function selectCustomer(name) {
+            document.getElementById('display-cust-name').innerText = name;
+            toggleModal('modalKhachHang', false);
+        }
+
+        // Thanh toán
+        function openPaymentModal() {
+            if(total === 0) return alert("Giỏ hàng trống!");
+            document.getElementById('modal-pay-total').innerText = total.toLocaleString() + 'đ';
+            toggleModal('paymentModal', true);
+            setTimeout(() => document.getElementById('input-guest-money').focus(), 100);
+        }
+
+        function closePaymentModal() {
+            toggleModal('paymentModal', false);
+        }
+
+        function calculateChange() {
+            let input = document.getElementById('input-guest-money');
+            let rawValue = input.value.replace(/\D/g, '');
+            let guestMoney = parseInt(rawValue) || 0;
+            input.value = guestMoney.toLocaleString();
+
+            let change = guestMoney - total;
+            document.getElementById('text-change').innerText = (change > 0 ? change.toLocaleString() : 0) + 'đ';
+        }
+
+        function quickMoney(val) {
+            document.getElementById('input-guest-money').value = val.toLocaleString();
+            calculateChange();
+        }
+
+        function completeSale() {
+            alert("Thanh toán thành công! In hóa đơn...");
+            cart = [];
+            updateCart();
+            closePaymentModal();
+        }
+    </script>
+</body>
+</html>

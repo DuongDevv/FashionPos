@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="vi">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,9 +9,13 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
-        body { font-family: 'Inter', sans-serif; }
+
+        body {
+            font-family: 'Inter', sans-serif;
+        }
     </style>
 </head>
+
 <body class="bg-gray-50">
 
     <div class="flex h-screen overflow-hidden">
@@ -19,14 +24,30 @@
                 FASHION <span class="text-blue-400">POS</span>
             </div>
             <nav class="flex-1 p-4 space-y-2 overflow-y-auto">
-                <a href="index.html" class="nav-item flex items-center p-3 hover:bg-slate-800 rounded-lg transition"><i class="fa-solid fa-chart-line w-6"></i> Tổng quan</a>
-                <a href="san-pham.html" class="nav-item flex items-center p-3 hover:bg-slate-800 rounded-lg transition"><i class="fa-solid fa-shirt w-6"></i> Sản phẩm</a>
-                <a href="don-hang.html" class="nav-item flex items-center p-3 hover:bg-slate-800 rounded-lg transition"><i class="fa-solid fa-cart-shopping w-6"></i> Đơn hàng</a>
-                <a href="khach-hang.html" class="nav-item flex items-center p-3 hover:bg-slate-800 rounded-lg transition"><i class="fa-solid fa-users w-6"></i> Khách hàng</a>
-                <a href="nhan-vien.html" class="flex items-center p-3 hover:bg-slate-800 rounded-lg transition"><i class="fa-solid fa-user-tie w-6"></i> Nhân viên</a>
-                <a href="bao-cao.html" class="nav-item flex items-center p-3 hover:bg-slate-800 rounded-lg transition"><i class="fa-solid fa-file-invoice-dollar w-6"></i> Báo cáo</a>
-                <a href="cai-dat.html" class="nav-item flex items-center p-3 hover:bg-slate-800 rounded-lg transition"><i class="fa-solid fa-gear w-6"></i> Cài đặt</a>
-</nav>
+                <a href="index.html" class="flex items-center p-3 hover:bg-slate-800 rounded-lg transition"><i
+                        class="fa-solid fa-chart-line w-6"></i> Tổng quan</a>
+                <a href="san-pham.html"
+                    class="nav-item flex items-center p-3 hover:bg-slate-800 rounded-lg transition"><i
+                        class="fa-solid fa-shirt w-6"></i> Sản phẩm</a>
+                <a href="nhap-hang.html" class="flex items-center p-3 bg-blue-600 rounded-lg transition text-sm"><i
+                        class="fa-solid fa-truck-ramp-box w-6"></i> Nhập hàng</a>
+                <a href="nha-cung-cap.html" class="flex items-center p-3 bg-blue-600 rounded-lg transition"><i
+                        class="fa-solid fa-boxes-packing w-6"></i> Nhà cung cấp</a>
+                <a href="don-hang.html"
+                    class="nav-item flex items-center p-3 hover:bg-slate-800 rounded-lg transition"><i
+                        class="fa-solid fa-cart-shopping w-6"></i> Đơn hàng</a>
+                <a href="khach-hang.html"
+                    class="nav-item flex items-center p-3 hover:bg-slate-800 rounded-lg transition"><i
+                        class="fa-solid fa-users w-6"></i> Khách hàng</a>
+                <a href="nhan-vien.html" class="flex items-center p-3 hover:bg-slate-800 rounded-lg transition"><i
+                        class="fa-solid fa-user-tie w-6"></i> Nhân viên</a>
+                <a href="bao-cao.html"
+                    class="nav-item flex items-center p-3 hover:bg-slate-800 rounded-lg transition"><i
+                        class="fa-solid fa-file-invoice-dollar w-6"></i> Báo cáo</a>
+                <a href="cai-dat.html"
+                    class="nav-item flex items-center p-3 hover:bg-slate-800 rounded-lg transition"><i
+                        class="fa-solid fa-gear w-6"></i> Cài đặt</a>
+            </nav>
         </aside>
 
         <main class="flex-1 overflow-y-auto">
@@ -37,10 +58,14 @@
                         <span class="absolute inset-y-0 left-0 pl-3 flex items-center text-gray-400">
                             <i class="fa-solid fa-magnifying-glass"></i>
                         </span>
-                        <input type="text" class="pl-10 pr-4 py-2 border rounded-full text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 bg-gray-50" placeholder="Tìm kiếm...">
+                        <input type="text"
+                            class="pl-10 pr-4 py-2 border rounded-full text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 bg-gray-50"
+                            placeholder="Tìm kiếm...">
                     </div>
                     <div class="flex items-center space-x-2">
-                        <div class="w-10 h-10 bg-blue-500 rounded-full flex items-center justify-center text-white font-bold">A</div>
+                        <div
+                            class="w-10 h-10 bg-blue-500 rounded-full flex items-center justify-center text-white font-bold">
+                            A</div>
                         <span class="text-sm font-medium text-gray-700">Admin</span>
                     </div>
                 </div>
@@ -53,9 +78,11 @@
                             <div>
                                 <p class="text-sm text-gray-500 mb-1">Doanh thu hôm nay</p>
                                 <h3 class="text-2xl font-bold">12.500.000đ</h3>
-                                <p class="text-xs text-green-500 mt-2"><i class="fa-solid fa-arrow-up"></i> +15% so với hôm qua</p>
+                                <p class="text-xs text-green-500 mt-2"><i class="fa-solid fa-arrow-up"></i> +15% so với
+                                    hôm qua</p>
                             </div>
-                            <div class="p-3 bg-blue-50 text-blue-500 rounded-lg"><i class="fa-solid fa-money-bill-trend-up"></i></div>
+                            <div class="p-3 bg-blue-50 text-blue-500 rounded-lg"><i
+                                    class="fa-solid fa-money-bill-trend-up"></i></div>
                         </div>
                     </div>
                     <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
@@ -65,7 +92,8 @@
                                 <h3 class="text-2xl font-bold">48</h3>
                                 <p class="text-xs text-blue-500 mt-2">Đang chờ xử lý: 12</p>
                             </div>
-                            <div class="p-3 bg-orange-50 text-orange-500 rounded-lg"><i class="fa-solid fa-bag-shopping"></i></div>
+                            <div class="p-3 bg-orange-50 text-orange-500 rounded-lg"><i
+                                    class="fa-solid fa-bag-shopping"></i></div>
                         </div>
                     </div>
                     <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
@@ -75,7 +103,8 @@
                                 <h3 class="text-2xl font-bold text-red-500">05</h3>
                                 <p class="text-xs text-gray-400 mt-2">Cần nhập thêm hàng</p>
                             </div>
-                            <div class="p-3 bg-red-50 text-red-500 rounded-lg"><i class="fa-solid fa-box-open"></i></div>
+                            <div class="p-3 bg-red-50 text-red-500 rounded-lg"><i class="fa-solid fa-box-open"></i>
+                            </div>
                         </div>
                     </div>
                     <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
@@ -83,16 +112,19 @@
                             <div>
                                 <p class="text-sm text-gray-500 mb-1">Khách hàng mới</p>
                                 <h3 class="text-2xl font-bold">156</h3>
-                                <p class="text-xs text-green-500 mt-2"><i class="fa-solid fa-arrow-up"></i> +8% tháng này</p>
+                                <p class="text-xs text-green-500 mt-2"><i class="fa-solid fa-arrow-up"></i> +8% tháng
+                                    này</p>
                             </div>
-                            <div class="p-3 bg-green-50 text-green-500 rounded-lg"><i class="fa-solid fa-user-plus"></i></div>
+                            <div class="p-3 bg-green-50 text-green-500 rounded-lg"><i class="fa-solid fa-user-plus"></i>
+                            </div>
                         </div>
                     </div>
                 </div>
 
                 <div class="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden">
                     <div class="p-6 border-b border-gray-100 flex justify-between items-center">
-                        <h3 class="font-bold text-gray-800 uppercase tracking-wider text-sm">Danh sách đơn hàng mới nhất</h3>
+                        <h3 class="font-bold text-gray-800 uppercase tracking-wider text-sm">Danh sách đơn hàng mới nhất
+                        </h3>
                         <button class="text-blue-600 text-sm font-semibold hover:underline">Xem tất cả</button>
                     </div>
                     <div class="overflow-x-auto">
@@ -113,9 +145,12 @@
                                     <td class="px-6 py-4">Nguyễn Văn A</td>
                                     <td class="px-6 py-4">Áo sơ mi Oxford (Size L)</td>
                                     <td class="px-6 py-4 font-semibold">450.000đ</td>
-                                    <td class="px-6 py-4"><span class="px-2 py-1 bg-green-100 text-green-600 rounded-full text-xs">Hoàn thành</span></td>
+                                    <td class="px-6 py-4"><span
+                                            class="px-2 py-1 bg-green-100 text-green-600 rounded-full text-xs">Hoàn
+                                            thành</span></td>
                                     <td class="px-6 py-4 text-center">
-                                        <button class="p-1 text-gray-400 hover:text-blue-600"><i class="fa-solid fa-eye"></i></button>
+                                        <button class="p-1 text-gray-400 hover:text-blue-600"><i
+                                                class="fa-solid fa-eye"></i></button>
                                     </td>
                                 </tr>
                                 <tr class="hover:bg-gray-50">
@@ -123,9 +158,12 @@
                                     <td class="px-6 py-4">Trần Thị B</td>
                                     <td class="px-6 py-4">Quần Jeans Slimfit</td>
                                     <td class="px-6 py-4 font-semibold">590.000đ</td>
-                                    <td class="px-6 py-4"><span class="px-2 py-1 bg-yellow-100 text-yellow-600 rounded-full text-xs">Đang giao</span></td>
+                                    <td class="px-6 py-4"><span
+                                            class="px-2 py-1 bg-yellow-100 text-yellow-600 rounded-full text-xs">Đang
+                                            giao</span></td>
                                     <td class="px-6 py-4 text-center">
-                                        <button class="p-1 text-gray-400 hover:text-blue-600"><i class="fa-solid fa-eye"></i></button>
+                                        <button class="p-1 text-gray-400 hover:text-blue-600"><i
+                                                class="fa-solid fa-eye"></i></button>
                                     </td>
                                 </tr>
                             </tbody>
@@ -137,4 +175,5 @@
     </div>
 
 </body>
+
 </html>

@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nhập Hàng - Fashion Admin</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        body { font-family: 'Inter', sans-serif; }
+    </style>
+</head>
+<body class="bg-gray-50">
+
+    <div class="flex h-screen overflow-hidden">
+        <aside class="w-64 bg-slate-900 text-white flex-shrink-0 hidden md:flex flex-col">
+            <div class="p-6 text-2xl font-bold text-center border-b border-slate-700">FASHION <span class="text-blue-400">POS</span></div>
+            <nav class="flex-1 p-4 space-y-1 overflow-y-auto">
+                <a href="index.html" class="flex items-center p-3 hover:bg-slate-800 rounded-lg transition text-sm"><i class="fa-solid fa-chart-line w-6"></i> Tổng quan</a>
+                <a href="san-pham.html" class="flex items-center p-3 hover:bg-slate-800 rounded-lg transition text-sm"><i class="fa-solid fa-shirt w-6"></i> Sản phẩm</a>
+                <a href="nhap-hang.html" class="flex items-center p-3 hover:bg-slate-800 rounded-lg transition text-sm"><i class="fa-solid fa-truck-ramp-box w-6"></i> Nhập hàng</a><a href="san-pham.html" class="flex items-center p-3 bg-blue-600 rounded-lg transition"><i class="fa-solid fa-shirt w-6"></i> Sản phẩm</a>
+                <a href="nha-cung-cap.html" class="flex items-center p-3 bg-blue-600 rounded-lg transition"><i class="fa-solid fa-boxes-packing w-6"></i> Nhà cung cấp</a>
+                <a href="don-hang.html" class="flex items-center p-3 hover:bg-slate-800 rounded-lg transition text-sm"><i class="fa-solid fa-cart-shopping w-6"></i> Đơn hàng</a>
+                <a href="khach-hang.html" class="flex items-center p-3 hover:bg-slate-800 rounded-lg transition text-sm"><i class="fa-solid fa-users w-6"></i> Khách hàng</a>
+                <a href="nhan-vien.html" class="flex items-center p-3 hover:bg-slate-800 rounded-lg transition text-sm"><i class="fa-solid fa-user-tie w-6"></i> Nhân viên</a>
+                <a href="bao-cao.html" class="flex items-center p-3 hover:bg-slate-800 rounded-lg transition text-sm"><i class="fa-solid fa-file-invoice-dollar w-6"></i> Báo cáo</a>
+                <a href="cai-dat.html" class="flex items-center p-3 hover:bg-slate-800 rounded-lg transition text-sm"><i class="fa-solid fa-gear w-6"></i> Cài đặt</a>
+            </nav>
+        </aside>
+
+        <main class="flex-1 overflow-y-auto">
+            <header class="bg-white shadow-sm p-4 flex justify-between items-center sticky top-0 z-10">
+                <h2 class="text-xl font-semibold text-gray-800">Tạo Đơn Nhập Hàng</h2>
+                <div class="flex space-x-2 text-sm">
+                    <span class="text-gray-400 italic">Mã đơn nhập: <b class="text-gray-800">NH-2026-001</b></span>
+                </div>
+            </header>
+
+            <div class="p-6 grid grid-cols-1 lg:grid-cols-3 gap-6">
+                <div class="lg:col-span-2 space-y-6">
+                    <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
+                        <div class="relative mb-6">
+                            <input type="text" placeholder="Tìm tên hoặc quét mã vạch sản phẩm để nhập..." class="w-full pl-10 pr-4 py-3 border rounded-xl focus:ring-2 focus:ring-blue-500 outline-none">
+                            <i class="fa-solid fa-barcode absolute left-4 top-4 text-gray-400"></i>
+                        </div>
+
+                        <div class="overflow-x-auto">
+                            <table class="w-full text-left">
+                                <thead class="text-xs text-gray-400 uppercase border-b">
+                                    <tr>
+                                        <th class="pb-3">Sản phẩm</th>
+                                        <th class="pb-3 text-center">Số lượng</th>
+                                        <th class="pb-3">Giá nhập</th>
+                                        <th class="pb-3 text-right">Thành tiền</th>
+                                        <th class="pb-3"></th>
+                                    </tr>
+                                </thead>
+                                <tbody class="divide-y divide-gray-50">
+                                    <tr class="text-sm">
+                                        <td class="py-4">
+                                            <p class="font-bold text-gray-800">Áo Hoodie Essentials</p>
+                                            <p class="text-[10px] text-gray-400">Size: L | Màu: Đen</p>
+                                        </td>
+                                        <td class="py-4">
+                                            <div class="flex items-center justify-center border rounded-lg w-24 mx-auto font-bold">
+                                                <button class="px-2 text-gray-400">-</button>
+                                                <input type="text" value="20" class="w-full text-center outline-none bg-transparent">
+                                                <button class="px-2 text-blue-500">+</button>
+                                            </div>
+                                        </td>
+                                        <td class="py-4">
+                                            <input type="text" value="250.000" class="w-24 border-b outline-none focus:border-blue-500 font-medium">
+                                        </td>
+                                        <td class="py-4 text-right font-bold text-gray-700">5.000.000đ</td>
+                                        <td class="py-4 text-right">
+                                            <button class="text-gray-300 hover:text-red-500 transition"><i class="fa-solid fa-xmark"></i></button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="space-y-6">
+                    <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
+                        <h3 class="font-bold text-gray-700 mb-4 border-b pb-2">Thông tin nhà cung cấp</h3>
+                        <div class="space-y-4">
+                            <select class="w-full border rounded-lg px-4 py-2 text-sm focus:ring-2 focus:ring-blue-500 outline-none">
+                                <option>Chọn nhà cung cấp</option>
+                                <option selected>Xưởng may Gia Công SG</option>
+                                <option>Tổng kho Sỉ Ninh Hiệp</option>
+                            </select>
+                            <div class="bg-blue-50 p-4 rounded-lg text-xs text-blue-700 space-y-1">
+                                <p><i class="fa-solid fa-user mr-2"></i> Người liên hệ: Anh Hùng</p>
+                                <p><i class="fa-solid fa-phone mr-2"></i> SĐT: 0944 xxx xxx</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-slate-800 text-white p-6 rounded-xl shadow-lg space-y-4">
+                        <div class="flex justify-between text-sm opacity-70">
+                            <span>Số lượng mặt hàng:</span>
+                            <span>01</span>
+                        </div>
+                        <div class="flex justify-between text-sm opacity-70">
+                            <span>Tổng tiền hàng:</span>
+                            <span>5.000.000đ</span>
+                        </div>
+                        <div class="flex justify-between text-sm opacity-70 border-b border-slate-700 pb-4">
+                            <span>Chiết khấu (%):</span>
+                            <span class="text-green-400">- 100.000đ</span>
+                        </div>
+                        <div class="flex justify-between items-end pt-2">
+                            <span class="text-sm font-bold uppercase">Cần thanh toán:</span>
+                            <span class="text-2xl font-black text-blue-400">4.900.000đ</span>
+                        </div>
+                        <button class="w-full bg-blue-500 hover:bg-blue-600 py-3 rounded-xl font-bold transition shadow-lg shadow-blue-900/50 mt-4">
+                            XÁC NHẬN NHẬP KHO
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+</body>
+</html>

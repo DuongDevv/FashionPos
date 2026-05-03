@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nhà Cung Cấp - Fashion Admin</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        body { font-family: 'Inter', sans-serif; }
+    </style>
+</head>
+<body class="bg-gray-50">
+
+    <div class="flex h-screen overflow-hidden">
+        <aside class="w-64 bg-slate-900 text-white flex-shrink-0 hidden md:flex flex-col">
+            <div class="p-6 text-2xl font-bold text-center border-b border-slate-700 uppercase">FASHION <span class="text-blue-400">POS</span></div>
+            <nav class="flex-1 p-4 space-y-1 overflow-y-auto text-sm">
+                <a href="index.html" class="flex items-center p-3 hover:bg-slate-800 rounded-lg transition"><i class="fa-solid fa-chart-line w-6"></i> Tổng quan</a>
+                <a href="san-pham.html" class="flex items-center p-3 hover:bg-slate-800 rounded-lg transition"><i class="fa-solid fa-shirt w-6"></i> Sản phẩm</a>
+                <a href="nhap-hang.html" class="flex items-center p-3 hover:bg-slate-800 rounded-lg transition"><i class="fa-solid fa-truck-ramp-box w-6"></i> Nhập hàng</a>
+                <a href="nha-cung-cap.html" class="flex items-center p-3 hover:bg-slate-800 rounded-lg transition text-sm"><i class="fa-solid fa-boxes-packing w-6"></i> Nhà cung cấp</a><a href="don-hang.html" class="flex items-center p-3 hover:bg-slate-800 rounded-lg transition"><i class="fa-solid fa-cart-shopping w-6"></i> Đơn hàng</a>
+                <a href="don-hang.html" class="flex items-center p-3 hover:bg-slate-800 rounded-lg transition"><i class="fa-solid fa-cart-shopping w-6"></i> Đơn hàng</a>
+                <a href="khach-hang.html" class="flex items-center p-3 hover:bg-slate-800 rounded-lg transition"><i class="fa-solid fa-users w-6"></i> Khách hàng</a>
+                <a href="nhan-vien.html" class="flex items-center p-3 hover:bg-slate-800 rounded-lg transition"><i class="fa-solid fa-user-tie w-6"></i> Nhân viên</a>
+                <a href="bao-cao.html" class="flex items-center p-3 hover:bg-slate-800 rounded-lg transition"><i class="fa-solid fa-file-invoice-dollar w-6"></i> Báo cáo</a>
+                <a href="cai-dat.html" class="flex items-center p-3 hover:bg-slate-800 rounded-lg transition"><i class="fa-solid fa-gear w-6"></i> Cài đặt</a>
+            </nav>
+        </aside>
+
+        <main class="flex-1 overflow-y-auto">
+            <header class="bg-white shadow-sm p-4 flex justify-between items-center sticky top-0 z-10">
+                <h2 class="text-xl font-semibold text-gray-800">Quản Lý Nhà Cung Cấp</h2>
+                <button onclick="toggleModal()" class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition flex items-center shadow-lg shadow-blue-200">
+                    <i class="fa-solid fa-plus mr-2"></i> Thêm NCC mới
+                </button>
+            </header>
+
+            <div class="p-6">
+                <div class="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden">
+                    <table class="w-full text-left">
+                        <thead class="bg-gray-50 text-gray-500 text-[10px] uppercase font-bold border-b">
+                            <tr>
+                                <th class="px-6 py-4">Nhà cung cấp</th>
+                                <th class="px-6 py-4">Liên hệ</th>
+                                <th class="px-6 py-4">Địa chỉ</th>
+                                <th class="px-6 py-4">Công nợ</th>
+                                <th class="px-6 py-4 text-center">Thao tác</th>
+                            </tr>
+                        </thead>
+                        <tbody class="text-sm divide-y divide-gray-100">
+                            <tr class="hover:bg-gray-50 transition">
+                                <td class="px-6 py-4 font-bold text-gray-800">Xưởng may Gia Công SG</td>
+                                <td class="px-6 py-4">
+                                    <p>Anh Hùng</p>
+                                    <p class="text-xs text-gray-400 font-mono">0944.xxx.xxx</p>
+                                </td>
+                                <td class="px-6 py-4 text-gray-500 text-xs">Quận 12, TP. Hồ Chí Minh</td>
+                                <td class="px-6 py-4 font-bold text-red-500">15.000.000đ</td>
+                                <td class="px-6 py-4 text-center space-x-2">
+                                    <button class="text-blue-500"><i class="fa-solid fa-pen-to-square"></i></button>
+                                    <button class="text-gray-400 hover:text-red-500"><i class="fa-solid fa-trash"></i></button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <div id="modalNCC" class="hidden fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4">
+        <div class="bg-white rounded-2xl shadow-2xl w-full max-w-lg overflow-hidden animate-in fade-in zoom-in duration-300">
+            <div class="p-6 border-b flex justify-between items-center bg-gray-50">
+                <h3 class="font-bold text-gray-800 uppercase tracking-wider">Thêm Nhà Cung Cấp Mới</h3>
+                <button onclick="toggleModal()" class="text-gray-400 hover:text-gray-600 text-2xl">&times;</button>
+            </div>
+            <div class="p-8 space-y-4">
+                <div class="space-y-1">
+                    <label class="text-xs font-bold text-gray-500 italic uppercase">Tên nhà cung cấp *</label>
+                    <input type="text" placeholder="Ví dụ: Xưởng vải Hà Nội" class="w-full border rounded-xl px-4 py-2.5 focus:ring-2 focus:ring-blue-500 outline-none">
+                </div>
+                <div class="grid grid-cols-2 gap-4">
+                    <div class="space-y-1">
+                        <label class="text-xs font-bold text-gray-500 italic uppercase">Người liên hệ</label>
+                        <input type="text" class="w-full border rounded-xl px-4 py-2.5 focus:ring-2 focus:ring-blue-500 outline-none">
+                    </div>
+                    <div class="space-y-1">
+                        <label class="text-xs font-bold text-gray-500 italic uppercase">Số điện thoại</label>
+                        <input type="text" class="w-full border rounded-xl px-4 py-2.5 focus:ring-2 focus:ring-blue-500 outline-none">
+                    </div>
+                </div>
+                <div class="space-y-1">
+                    <label class="text-xs font-bold text-gray-500 italic uppercase">Địa chỉ</label>
+                    <textarea class="w-full border rounded-xl px-4 py-2.5 focus:ring-2 focus:ring-blue-500 outline-none" rows="2"></textarea>
+                </div>
+                <div class="flex justify-end space-x-3 pt-4 border-t">
+                    <button onclick="toggleModal()" class="px-6 py-2 text-gray-500 font-bold hover:underline">Hủy</button>
+                    <button class="bg-blue-600 text-white px-8 py-2 rounded-xl font-black shadow-lg shadow-blue-200 hover:bg-blue-700 transition">
+                        LƯU ĐỐI TÁC
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function toggleModal() {
+            const modal = document.getElementById('modalNCC');
+            modal.classList.toggle('hidden');
+        }
+    </script>
+
+</body>
+</html>

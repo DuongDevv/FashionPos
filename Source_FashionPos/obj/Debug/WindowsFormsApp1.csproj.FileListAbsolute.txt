@@ -1,19 +1,32 @@
-D:\c#\WindowsFormsApp1\bin\Debug\WindowsFormsApp1.exe.config
-D:\c#\WindowsFormsApp1\bin\Debug\WindowsFormsApp1.exe
-D:\c#\WindowsFormsApp1\bin\Debug\WindowsFormsApp1.pdb
-D:\c#\WindowsFormsApp1\bin\Debug\Guna.UI2.dll
-D:\c#\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.csproj.AssemblyReference.cache
-D:\c#\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.Form1.resources
-D:\c#\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.Properties.Resources.resources
-D:\c#\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.csproj.GenerateResource.cache
-D:\c#\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.csproj.CoreCompileInputs.cache
-D:\c#\WindowsFormsApp1\obj\Debug\WindowsF.A1EEDF9B.Up2Date
-D:\c#\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.exe
-D:\c#\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.pdb
-D:\c#\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.ucHome.resources
-D:\c#\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.ucTongquan.resources
-D:\c#\Source_FashionPos\obj\Debug\WindowsFormsApp1.csproj.AssemblyReference.cache
-D:\c#\Source_FashionPos\obj\Debug\WindowsFormsApp1.Form1.resources
-D:\c#\Source_FashionPos\obj\Debug\WindowsFormsApp1.Properties.Resources.resources
-D:\c#\Source_FashionPos\obj\Debug\WindowsFormsApp1.csproj.GenerateResource.cache
-D:\c#\Source_FashionPos\obj\Debug\WindowsFormsApp1.csproj.CoreCompileInputs.cache
+D:\C#\New folder\FashionPos\Source_FashionPos\obj\Debug\WindowsFormsApp1.csproj.AssemblyReference.cache
+D:\C#\New folder\FashionPos\Source_FashionPos\obj\Debug\WindowsFormsApp1.Form1.resources
+D:\C#\New folder\FashionPos\Source_FashionPos\obj\Debug\WindowsFormsApp1.Properties.Resources.resources
+D:\C#\New folder\FashionPos\Source_FashionPos\obj\Debug\WindowsFormsApp1.UserControls.ucCustomer.resources
+D:\C#\New folder\FashionPos\Source_FashionPos\obj\Debug\WindowsFormsApp1.UserControls.ucHome.resources
+D:\C#\New folder\FashionPos\Source_FashionPos\obj\Debug\WindowsFormsApp1.UserControls.ucProductItem.resources
+D:\C#\New folder\FashionPos\Source_FashionPos\obj\Debug\WindowsFormsApp1.UserControls.ucProducts.resources
+D:\C#\New folder\FashionPos\Source_FashionPos\obj\Debug\WindowsFormsApp1.UserControls.ucReport.resources
+D:\C#\New folder\FashionPos\Source_FashionPos\obj\Debug\WindowsFormsApp1.UserControls.ucSell.resources
+D:\C#\New folder\FashionPos\Source_FashionPos\obj\Debug\WindowsFormsApp1.UserControls.ucSetting.resources
+D:\C#\New folder\FashionPos\Source_FashionPos\obj\Debug\WindowsFormsApp1.UserControls.ucStaff.resources
+D:\C#\New folder\FashionPos\Source_FashionPos\obj\Debug\WindowsFormsApp1.UserControls.ucSupplier.resources
+D:\C#\New folder\FashionPos\Source_FashionPos\obj\Debug\WindowsFormsApp1.csproj.GenerateResource.cache
+D:\C#\New folder\FashionPos\Source_FashionPos\obj\Debug\WindowsFormsApp1.csproj.CoreCompileInputs.cache
+D:\C#\New folder\FashionPos\Source_FashionPos\bin\Debug\WindowsFormsApp1.exe.config
+D:\C#\New folder\FashionPos\Source_FashionPos\bin\Debug\WindowsFormsApp1.exe
+D:\C#\New folder\FashionPos\Source_FashionPos\bin\Debug\WindowsFormsApp1.pdb
+D:\C#\New folder\FashionPos\Source_FashionPos\bin\Debug\Guna.UI2.dll
+D:\C#\New folder\FashionPos\Source_FashionPos\obj\Debug\WindowsF.A1EEDF9B.Up2Date
+D:\C#\New folder\FashionPos\Source_FashionPos\obj\Debug\WindowsFormsApp1.exe
+D:\C#\New folder\FashionPos\Source_FashionPos\obj\Debug\WindowsFormsApp1.pdb
+D:\C#\New folder\FashionPos\Source_FashionPos\obj\Debug\WindowsFormsApp1.Views.Auth.frmEditStaff.resources
+D:\C#\New folder\FashionPos\Source_FashionPos\obj\Debug\WindowsFormsApp1.Views.Auth.frmEditCustomer.resources
+D:\C#\New folder\FashionPos\Source_FashionPos\obj\Debug\WindowsFormsApp1.Views.Auth.frmEditProductVarian.resources
+D:\C#\New folder\FashionPos\Source_FashionPos\obj\Debug\WindowsFormsApp1.Views.Auth.frmEditProduct.resources
+D:\C#\New folder\FashionPos\Source_FashionPos\obj\Debug\WindowsFormsApp1.Views.Auth.frmEditSupplier.resources
+D:\C#\New folder\FashionPos\Source_FashionPos\obj\Debug\WindowsFormsApp1.UserControls.ucStockIn.resources
+D:\C#\New folder\FashionPos\Source_FashionPos\obj\Debug\WindowsFormsApp1.Views.Auth.frmInputQuantity.resources
+D:\C#\New folder\FashionPos\Source_FashionPos\obj\Debug\WindowsFormsApp1.Views.Auth.frmPayment.resources
+D:\C#\New folder\FashionPos\Source_FashionPos\obj\Debug\WindowsFormsApp1.Views.Auth.frmPickCustomer.resources
+D:\C#\New folder\FashionPos\Source_FashionPos\obj\Debug\WindowsFormsApp1.Views.Auth.frmChangePassword.resources
+D:\C#\New folder\FashionPos\Source_FashionPos\obj\Debug\WindowsFormsApp1.Views.Main.frmLogin.resources

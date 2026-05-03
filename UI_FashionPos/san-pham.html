@@ -3,70 +3,228 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sản Phẩm - Fashion Admin</title>
+    <title>Quản Lý Kho - Fashion Admin</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
         body { font-family: 'Inter', sans-serif; }
+        .tab-content { display: none; }
+        .tab-content.active { display: block; animation: fadeIn 0.3s ease; }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
     </style>
 </head>
 <body class="bg-gray-50">
+
     <div class="flex h-screen overflow-hidden">
         <aside class="w-64 bg-slate-900 text-white flex-shrink-0 hidden md:flex flex-col">
-            <div class="p-6 text-2xl font-bold text-center border-b border-slate-700">FASHION <span class="text-blue-400">POS</span></div>
-            <nav class="flex-1 p-4 space-y-2">
+            <div class="p-6 text-2xl font-bold text-center border-b border-slate-700 uppercase">FASHION <span class="text-blue-400">POS</span></div>
+            <nav class="flex-1 p-4 space-y-1 text-sm">
                 <a href="index.html" class="flex items-center p-3 hover:bg-slate-800 rounded-lg transition"><i class="fa-solid fa-chart-line w-6"></i> Tổng quan</a>
-                <a href="san-pham.html" class="flex items-center p-3 bg-blue-600 rounded-lg transition"><i class="fa-solid fa-shirt w-6"></i> Sản phẩm</a>
+                <a href="quan-ly-kho.html" class="flex items-center p-3 bg-blue-600 rounded-lg transition"><i class="fa-solid fa-boxes-stacked w-6"></i> Quản lý kho</a>
+                <a href="nhap-hang.html" class="flex items-center p-3 hover:bg-slate-800 rounded-lg transition"><i class="fa-solid fa-truck-ramp-box w-6"></i> Nhập hàng</a>
                 <a href="don-hang.html" class="flex items-center p-3 hover:bg-slate-800 rounded-lg transition"><i class="fa-solid fa-cart-shopping w-6"></i> Đơn hàng</a>
                 <a href="khach-hang.html" class="flex items-center p-3 hover:bg-slate-800 rounded-lg transition"><i class="fa-solid fa-users w-6"></i> Khách hàng</a>
                 <a href="nhan-vien.html" class="flex items-center p-3 hover:bg-slate-800 rounded-lg transition"><i class="fa-solid fa-user-tie w-6"></i> Nhân viên</a>
-                <a href="bao-cao.html" class="flex items-center p-3 hover:bg-slate-800 rounded-lg transition"><i class="fa-solid fa-file-invoice-dollar w-6"></i> Báo cáo</a>
-                <a href="cai-dat.html" class="flex items-center p-3 hover:bg-slate-800 rounded-lg transition"><i class="fa-solid fa-gear w-6"></i> Cài đặt</a>
+                <a href="ban-hang.html" class="flex items-center p-3 hover:bg-slate-800 rounded-lg transition"><i class="fa-solid fa-cash-register w-6"></i> Bán hàng</a>
             </nav>
         </aside>
 
         <main class="flex-1 overflow-y-auto">
-            <header class="bg-white shadow-sm p-4 flex justify-between items-center sticky top-0 z-10">
-                <h2 class="text-xl font-semibold text-gray-800">Danh Sách Sản Phẩm</h2>
-                <button class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition flex items-center shadow-lg shadow-blue-200">
-                    <i class="fa-solid fa-plus mr-2"></i> Thêm mới
-                </button>
+            <header class="bg-white shadow-sm sticky top-0 z-10">
+                <div class="px-6 py-4 flex justify-between items-center">
+                    <h2 class="text-xl font-bold text-gray-800">Hệ Thống Kho Hàng</h2>
+                    <button id="btn-add-master" onclick="handleMasterAdd()" class="bg-blue-600 text-white px-5 py-2 rounded-xl text-sm font-bold hover:bg-blue-700 transition shadow-lg shadow-blue-100">
+                        + Thêm Mới
+                    </button>
+                </div>
+                <div class="flex px-6 space-x-8 border-t">
+                    <button onclick="switchTab('san-pham')" id="tab-btn-san-pham" class="tab-btn py-3 text-sm font-bold border-b-2 border-blue-600 text-blue-600">
+                        <i class="fa-solid fa-shirt mr-2"></i> Sản phẩm
+                    </button>
+                    <button onclick="switchTab('nha-cung-cap')" id="tab-btn-nha-cung-cap" class="tab-btn py-3 text-sm font-bold border-b-2 border-transparent text-gray-400">
+                        <i class="fa-solid fa-boxes-packing mr-2"></i> Nhà cung cấp
+                    </button>
+                </div>
             </header>
 
             <div class="p-6">
-                <div class="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden">
-                    <table class="w-full text-left">
-                        <thead class="bg-gray-50 text-gray-500 text-xs uppercase font-semibold">
-                            <tr>
-                                <th class="px-6 py-4">Sản phẩm</th>
-                                <th class="px-6 py-4">Giá bán</th>
-                                <th class="px-6 py-4">Tồn kho</th>
-                                <th class="px-6 py-4">Trạng thái</th>
-                                <th class="px-6 py-4 text-center">Thao tác</th>
-                            </tr>
-                        </thead>
-                        <tbody class="text-sm divide-y divide-gray-100">
-                            <tr class="hover:bg-gray-50 transition">
-                                <td class="px-6 py-4">
-                                    <div class="flex items-center space-x-3">
-                                        <div class="w-10 h-10 bg-gray-100 rounded-md"></div>
-                                        <span class="font-medium">Áo sơ mi Oxford White</span>
-                                    </div>
-                                </td>
-                                <td class="px-6 py-4 font-bold text-gray-700">450.000đ</td>
-                                <td class="px-6 py-4">24</td>
-                                <td class="px-6 py-4"><span class="px-2 py-1 bg-green-100 text-green-600 rounded-full text-xs">Đang bán</span></td>
-                                <td class="px-6 py-4 text-center">
-                                    <button class="text-blue-500 mr-2"><i class="fa-solid fa-pen-to-square"></i></button>
-                                    <button class="text-red-500"><i class="fa-solid fa-trash"></i></button>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
+                <div id="tab-san-pham" class="tab-content active">
+                    <div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
+                        <table class="w-full text-left">
+                            <thead class="bg-gray-50 text-gray-400 text-[10px] uppercase font-bold border-b">
+                                <tr>
+                                    <th class="px-6 py-4">Sản phẩm</th>
+                                    <th class="px-6 py-4 font-center">Danh mục</th>
+                                    <th class="px-6 py-4 text-center">Tồn kho</th>
+                                    <th class="px-6 py-4">Giá bán</th>
+                                    <th class="px-6 py-4 text-right">Thao tác</th>
+                                </tr>
+                            </thead>
+                            <tbody class="text-sm divide-y">
+                                <tr class="hover:bg-gray-50 transition">
+                                    <td class="px-6 py-4 flex items-center space-x-3">
+                                        <div class="w-12 h-12 rounded-lg bg-gray-100 overflow-hidden border">
+                                            <img src="https://images.unsplash.com/photo-1596755094514-f87e34085b2c?w=100" id="img-1" class="w-full h-full object-cover">
+                                        </div>
+                                        <div>
+                                            <p class="font-bold text-gray-800" id="pname-1">Áo Blazer Nam Hàn Quốc</p>
+                                            <p class="text-[10px] text-gray-400">SKU: BZ-001</p>
+                                        </div>
+                                    </td>
+                                    <td class="px-6 py-4 text-gray-600" id="pcat-1">Áo khoác</td>
+                                    <td class="px-6 py-4 text-center font-black text-blue-600" id="pstock-1">45</td>
+                                    <td class="px-6 py-4 font-bold text-gray-700" id="pprice-1">890.000đ</td>
+                                    <td class="px-6 py-4 text-right space-x-2">
+                                        <button onclick="openProductModal('edit', 1)" class="text-blue-500 hover:bg-blue-50 p-2 rounded-lg transition"><i class="fa-solid fa-pen-to-square"></i></button>
+                                        <button class="text-red-400 hover:bg-red-50 p-2 rounded-lg transition"><i class="fa-solid fa-trash"></i></button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div id="tab-nha-cung-cap" class="tab-content">
+                    <div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
+                        <table class="w-full text-left text-sm">
+                            <thead class="bg-gray-50 text-gray-400 text-[10px] uppercase font-bold border-b">
+                                <tr>
+                                    <th class="px-6 py-4">Nhà cung cấp</th>
+                                    <th class="px-6 py-4 font-center">Công nợ</th>
+                                    <th class="px-6 py-4 text-right">Thao tác</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="hover:bg-gray-50 transition">
+                                    <td class="px-6 py-4 font-bold">Xưởng May Gia Công SG</td>
+                                    <td class="px-6 py-4 text-red-500 font-bold">12.000.000đ</td>
+                                    <td class="px-6 py-4 text-right">
+                                        <button class="text-blue-500 hover:bg-blue-50 p-2 rounded-lg transition"><i class="fa-solid fa-pen-to-square"></i></button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
         </main>
     </div>
+
+    <div id="productModal" class="hidden fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-50 flex items-center justify-center p-4">
+        <div class="bg-white w-full max-w-2xl rounded-3xl shadow-2xl overflow-hidden animate-in fade-in zoom-in duration-200">
+            <div class="px-8 py-5 border-b flex justify-between items-center bg-gray-50">
+                <h3 id="pModalTitle" class="font-black text-slate-700 uppercase tracking-tight text-sm">Thêm sản phẩm mới</h3>
+                <button onclick="closeProductModal()" class="text-gray-400 hover:text-slate-800 text-3xl">&times;</button>
+            </div>
+
+            <form class="p-8 grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="space-y-4">
+                    <label class="text-[10px] font-black text-gray-400 uppercase tracking-widest">Ảnh minh họa</label>
+                    <div class="aspect-square border-2 border-dashed border-gray-200 rounded-2xl flex flex-col items-center justify-center relative overflow-hidden group bg-gray-50">
+                        <i class="fa-solid fa-cloud-arrow-up text-3xl text-gray-300 mb-2 group-hover:text-blue-500 transition"></i>
+                        <p class="text-[10px] text-gray-400 px-4 text-center">Tải ảnh lên hoặc kéo thả vào đây</p>
+                        <input type="file" class="absolute inset-0 opacity-0 cursor-pointer">
+                        <img id="p-preview" class="hidden absolute inset-0 w-full h-full object-cover">
+                    </div>
+                </div>
+
+                <div class="space-y-4">
+                    <div class="space-y-1">
+                        <label class="text-[10px] font-black text-gray-400 uppercase">Tên sản phẩm *</label>
+                        <input type="text" id="p-name" class="w-full border-2 border-gray-100 rounded-xl px-4 py-2 text-sm focus:border-blue-500 outline-none transition">
+                    </div>
+                    <div class="grid grid-cols-2 gap-3">
+                        <div class="space-y-1">
+                            <label class="text-[10px] font-black text-gray-400 uppercase">Danh mục</label>
+                            <select id="p-cat" class="w-full border-2 border-gray-100 rounded-xl px-4 py-2 text-sm outline-none bg-white font-medium">
+                                <option>Áo khoác</option>
+                                <option>Áo thun</option>
+                                <option>Quần Jeans</option>
+                                <option>Phụ kiện</option>
+                            </select>
+                        </div>
+                        <div class="space-y-1">
+                            <label class="text-[10px] font-black text-gray-400 uppercase">Tồn kho</label>
+                            <input type="number" id="p-stock" class="w-full border-2 border-gray-100 rounded-xl px-4 py-2 text-sm focus:border-blue-500 outline-none transition font-bold">
+                        </div>
+                    </div>
+                    <div class="space-y-1">
+                        <label class="text-[10px] font-black text-gray-400 uppercase">Giá bán (VNĐ)</label>
+                        <input type="text" id="p-price" class="w-full border-2 border-gray-100 rounded-xl px-4 py-2 text-sm focus:border-blue-500 outline-none transition font-black text-blue-600">
+                    </div>
+                </div>
+
+                <div class="col-span-1 md:col-span-2 flex justify-end space-x-4 pt-4 border-t">
+                    <button type="button" onclick="closeProductModal()" class="text-sm font-bold text-gray-400 hover:underline tracking-widest uppercase">Hủy</button>
+                    <button type="submit" class="bg-slate-900 text-white px-10 py-3 rounded-2xl font-black text-[10px] uppercase tracking-widest shadow-xl hover:bg-blue-600 transition">
+                        Lưu sản phẩm
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        let currentTab = 'san-pham';
+
+        // 1. Chuyển đổi Tab
+        function switchTab(tabId) {
+            currentTab = tabId;
+            // Ẩn/Hiện nội dung
+            document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+            document.getElementById('tab-' + tabId).classList.add('active');
+
+            // Đổi màu nút Tab
+            document.querySelectorAll('.tab-btn').forEach(b => {
+                b.classList.remove('border-blue-600', 'text-blue-600');
+                b.classList.add('border-transparent', 'text-gray-400');
+            });
+            document.getElementById('tab-btn-' + tabId).classList.add('border-blue-600', 'text-blue-600');
+        }
+
+        // 2. Mở Modal Sản phẩm (Sửa/Thêm)
+        function openProductModal(mode, id = null) {
+            const modal = document.getElementById('productModal');
+            const title = document.getElementById('pModalTitle');
+            const preview = document.getElementById('p-preview');
+            
+            modal.classList.remove('hidden');
+
+            if (mode === 'edit') {
+                title.innerText = "Chỉnh sửa thông tin sản phẩm";
+                // Lấy dữ liệu từ bảng đổ vào form
+                document.getElementById('p-name').value = document.getElementById('pname-' + id).innerText;
+                document.getElementById('p-cat').value = document.getElementById('pcat-' + id).innerText;
+                document.getElementById('p-stock').value = document.getElementById('pstock-' + id).innerText;
+                document.getElementById('p-price').value = document.getElementById('pprice-' + id).innerText;
+                
+                const oldImg = document.getElementById('img-' + id).src;
+                preview.src = oldImg;
+                preview.classList.remove('hidden');
+            } else {
+                title.innerText = "Thêm sản phẩm mới";
+                document.getElementById('p-name').value = "";
+                document.getElementById('p-stock').value = "0";
+                document.getElementById('p-price').value = "0";
+                preview.classList.add('hidden');
+            }
+        }
+
+        function closeProductModal() {
+            document.getElementById('productModal').classList.add('hidden');
+        }
+
+        // 3. Xử lý nút Thêm mới ở Header (Dựa vào tab đang mở)
+        function handleMasterAdd() {
+            if(currentTab === 'san-pham') {
+                openProductModal('add');
+            } else {
+                alert('Mở form thêm Nhà cung cấp...');
+                // Bạn có thể tạo thêm Modal NCC tương tự
+            }
+        }
+    </script>
+
 </body>
 </html>

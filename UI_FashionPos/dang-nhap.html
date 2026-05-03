@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đăng Nhập - Fashion System</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+        body { font-family: 'Inter', sans-serif; }
+    </style>
+</head>
+<body class="bg-slate-900 h-screen flex items-center justify-center p-4">
+
+    <div class="bg-white w-full max-w-4xl h-[550px] rounded-[32px] shadow-2xl flex overflow-hidden">
+        
+        <div class="hidden md:flex flex-1 bg-slate-900 p-12 flex-col justify-between text-white relative overflow-hidden">
+            <div class="absolute -top-12 -left-12 w-72 h-72 bg-blue-500/20 rounded-full blur-3xl"></div>
+            <div class="absolute -bottom-12 -right-12 w-72 h-72 bg-indigo-500/20 rounded-full blur-3xl"></div>
+            
+            <div>
+                <div class="text-3xl font-extrabold tracking-tight">FASHION <span class="text-blue-400">POS</span></div>
+                <p class="text-xs text-slate-400 mt-1">Hệ thống quản lý bán hàng và kho</p>
+            </div>
+            
+            <div class="space-y-4 z-10">
+                <i class="fa-solid fa-quote-left text-4xl text-blue-500"></i>
+                <blockquote class="text-xl font-medium text-slate-200 leading-relaxed">
+                    "Tối ưu hóa quy trình bán hàng, nâng cao trải nghiệm mua sắm của khách hàng."
+                </blockquote>
+                <div class="text-xs font-bold text-blue-400 uppercase tracking-widest mt-2">- Fashion System Team -</div>
+            </div>
+        </div>
+
+        <div class="w-full md:w-[480px] bg-white p-10 flex flex-col justify-between h-full">
+            <div>
+                <h2 class="text-3xl font-extrabold text-slate-800 tracking-tight">Đăng nhập</h2>
+                <p class="text-xs text-slate-400 mt-1">Chào mừng bạn trở lại với hệ thống</p>
+            </div>
+
+            <form action="index.html" class="space-y-5 my-6">
+                <div class="space-y-2">
+                    <label class="text-[10px] font-black text-slate-400 uppercase tracking-wider">Tên đăng nhập / Email</label>
+                    <div class="relative">
+                        <input type="text" placeholder="Nhập tài khoản" class="w-full pl-11 pr-4 py-3 bg-slate-50 border-2 border-transparent focus:border-blue-500 rounded-2xl outline-none text-sm font-medium transition-all" required>
+                        <i class="fa-solid fa-user absolute left-4 top-3.5 text-slate-400"></i>
+                    </div>
+                </div>
+
+                <div class="space-y-2">
+                    <label class="text-[10px] font-black text-slate-400 uppercase tracking-wider">Mật khẩu</label>
+                    <div class="relative">
+                        <input type="password" placeholder="Nhập mật khẩu" class="w-full pl-11 pr-4 py-3 bg-slate-50 border-2 border-transparent focus:border-blue-500 rounded-2xl outline-none text-sm font-medium transition-all" required>
+                        <i class="fa-solid fa-lock absolute left-4 top-3.5 text-slate-400"></i>
+                    </div>
+                </div>
+
+                <div class="flex items-center justify-between text-[11px]">
+                    <label class="flex items-center space-x-2 font-medium text-slate-600 cursor-pointer">
+                        <input type="checkbox" class="w-4 h-4 rounded text-blue-600 border-slate-200 focus:ring-0">
+                        <span>Nhớ tài khoản</span>
+                    </label>
+                    <a href="#" class="text-blue-600 font-bold hover:underline">Quên mật khẩu?</a>
+                </div>
+
+                <button type="submit" class="w-full py-4 bg-slate-900 text-white rounded-2xl font-black text-xs uppercase tracking-widest shadow-xl shadow-slate-200 hover:bg-blue-600 transition active:scale-95 duration-200 mt-8">
+                    Đăng nhập
+                </button>
+            </form>
+
+            <div class="text-center text-[10px] text-slate-400">
+                &copy; 2026 Fashion System. All rights reserved.
+            </div>
+        </div>
+
+    </div>
+
+</body>
+</html>
