@@ -11,46 +11,51 @@
 
 ---
 
-## 🌟 KEY ENTERPRISE FEATURES
+## KEY ENTERPRISE FEATURES
 
-### 1. 🛒 POS Cashier Terminal
+### 1. POS Cashier Terminal
+
 - **High-Speed Barcode SKU Scanner**: Instant product variant lookup by SKU with sub-5ms database query latency.
 - **Real-Time Cart Engine**: Dynamic item calculations, discount handling, and database-level stock limit enforcement preventing overbooking.
 - **Payment & Cash Calculator**: Supports Cash, VNPAY, Momo, and Bank Transfer with automated change calculation (`paidAmount - finalAmount`).
 - **Thermal Receipt Modal**: Displays formatted invoice receipts (`HD...`), itemized breakdown, calculated change due, and earned loyalty points.
 
-### 2. 📱 Customer Phone Lookup & Auto Loyalty Engine
+### 2. Customer Phone Lookup & Auto Loyalty Engine
+
 - **Instant Phone Lookup**: Search customer profiles directly on the POS screen by phone number to view Name, Current Points, Total Spent, and Tier Badges (**Bronze, Silver, Gold, Black VVIP**).
 - **On-the-Spot Member Registration**: If a phone number is unregistered, a 1-click modal pops up to register the new customer and immediately bind them to the active checkout transaction.
 - **Automated Membership Tier Upgrades**: PostgreSQL database triggers automatically calculate loyalty points (`10,000 VND = 1 point`) and upgrade member tiers upon transaction completion.
 
-### 3. 🛡️ Role-Based Access Control & JWT Security
+### 3. Role-Based Access Control & JWT Security
+
 - **BCrypt Password Hashing**: Hashed credentials stored securely in PostgreSQL.
 - **Signed JWT Authentication**: Generates HMAC-SHA256 signed JWT Access Tokens containing user claims (`employeeId`, `fullName`, `role`).
 - **Role Enforcement (RBAC)**: `SUPER_MANAGER`, `STORE_MANAGER`, `CASHIER`, and `WAREHOUSE_STAFF`.
 
-### 4. 📦 Inventory & Anti-Overselling Guard
+### 4. Inventory & Anti-Overselling Guard
+
 - **Concurrency Guards**: Prevents negative inventory at both database constraints (`CHECK stock_quantity >= 0`) and EF Core ACID `IDbContextTransaction` levels.
 - **Product & Variant Management**: Modal form for creating products, SKU barcodes, sizes, colors, and initial stock quantities.
 
-### 5. 📊 Executive Analytics Dashboard
+### 5. Executive Analytics Dashboard
+
 - Live tracking of today's revenue, POS order counts, VVIP customer metrics, and low-stock alerts (`< 10` units).
 
 ---
 
-## 🛠️ TECH STACK BLUEPRINT
+## TECH STACK BLUEPRINT
 
-| Domain | Technology | Engineering Highlights |
-| :--- | :--- | :--- |
-| **Backend API** | **C# .NET 8 Web API** | EF Core 8, Npgsql Custom Enum Translators, Swagger OpenAPI, BCrypt, JWT |
-| **Database** | **PostgreSQL 16** | ACID Transactions, Stored Procedures, Automated Triggers, Composite Indexes |
-| **In-Memory Cache** | **Redis 7** | Distributed Locking & Caching Layer |
-| **Frontend Web** | **Next.js 16 (App Router)** | React 19, TypeScript, Tailwind CSS (Royal Blue `#2161D9` Theme), Lucide Icons |
-| **Container & DevOps** | **Docker & Nginx** | Multi-stage Dockerfile (~120MB), Docker Compose, Next.js Server Proxy Rewrites |
+| Domain                 | Technology                  | Engineering Highlights                                                         |
+| :--------------------- | :-------------------------- | :----------------------------------------------------------------------------- |
+| **Backend API**        | **C# .NET 8 Web API**       | EF Core 8, Npgsql Custom Enum Translators, Swagger OpenAPI, BCrypt, JWT        |
+| **Database**           | **PostgreSQL 16**           | ACID Transactions, Stored Procedures, Automated Triggers, Composite Indexes    |
+| **In-Memory Cache**    | **Redis 7**                 | Distributed Locking & Caching Layer                                            |
+| **Frontend Web**       | **Next.js 16 (App Router)** | React 19, TypeScript, Tailwind CSS (Royal Blue `#2161D9` Theme), Lucide Icons  |
+| **Container & DevOps** | **Docker & Nginx**          | Multi-stage Dockerfile (~120MB), Docker Compose, Next.js Server Proxy Rewrites |
 
 ---
 
-## 🏗️ MONOREPO ARCHITECTURE
+## MONOREPO ARCHITECTURE
 
 ```
 FashionPos/
@@ -76,20 +81,23 @@ FashionPos/
 
 ---
 
-## 🚀 QUICK START GUIDE (A TO Z)
+## QUICK START GUIDE (A TO Z)
 
 ### Prerequisites:
+
 - **Node.js**: v18+ (Tested on Node.js v26)
 - **.NET SDK**: .NET 8 SDK
 - **Docker & Docker Compose**: For PostgreSQL 16 & Redis 7
 
-### 1️⃣ Step 1: Clone Repository
+### 1️ Step 1: Clone Repository
+
 ```bash
 git clone https://github.com/DuongDevv/FashionPos.git
 cd FashionPos
 ```
 
-### 2️⃣ Step 2: Execute 1-Click Startup Script
+### 2️ Step 2: Execute 1-Click Startup Script
+
 Run the automated control script to start Docker containers (PostgreSQL 16, Redis 7), C# .NET 8 API server, and Next.js 16 Web App:
 
 ```bash
@@ -97,9 +105,10 @@ chmod +x start.sh stop.sh status.sh
 ./start.sh
 ```
 
-*(PostgreSQL 16 runs on host port 5434, Redis 7 on port 6381, .NET 8 API on port 5000, and Next.js Web POS on port 3001!)*
+_(PostgreSQL 16 runs on host port 5434, Redis 7 on port 6381, .NET 8 API on port 5000, and Next.js Web POS on port 3001!)_
 
-### 3️⃣ Step 3: Access Application in Browser
+### 3️ Step 3: Access Application in Browser
+
 - 🛒 **Web POS Terminal**: [`http://localhost:3001/pos`](http://localhost:3001/pos)
 - 🔑 **Login Portal**: [`http://localhost:3001/login`](http://localhost:3001/login)
 - 📊 **Executive Dashboard**: [`http://localhost:3001/dashboard`](http://localhost:3001/dashboard)
@@ -107,16 +116,18 @@ chmod +x start.sh stop.sh status.sh
 
 ---
 
-## 💻 RUNNING THE LEGACY C# WINFORMS DESKTOP APP
+## RUNNING THE LEGACY C# WINFORMS DESKTOP APP
 
 If you want to run the legacy **C# WinForms Desktop Application** stored in `legacy_winforms/`:
 
 ### Prerequisites for Legacy App:
+
 - Windows OS
 - **Visual Studio 2019 / 2022** (with `.NET Desktop Development` workload)
 - **Microsoft SQL Server** (SQL Express / Enterprise) & SSMS (SQL Server Management Studio)
 
 ### Execution Steps:
+
 1. **Restore MS SQL Server Database**:
    - Open SSMS, create a database named `FashionPOS`.
    - Open `infrastructure/db/Fashion.sql` and click **Execute** to generate tables and seed data.
@@ -129,7 +140,7 @@ If you want to run the legacy **C# WinForms Desktop Application** stored in `leg
 
 ---
 
-## 🔑 DEMO CREDENTIALS & TESTING DATA
+## DEMO CREDENTIALS & TESTING DATA
 
 - **Admin Account**: `superManager` / Password: `123456`
 - **Customer Phone Test**: `0906834761` (VVIP Customer - Black Tier)
@@ -137,7 +148,7 @@ If you want to run the legacy **C# WinForms Desktop Application** stored in `leg
 
 ---
 
-## 🛠️ OPERATIONAL SCRIPTS
+## OPERATIONAL SCRIPTS
 
 - **Check Platform Status**: `./status.sh`
 - **Stop All Services**: `./stop.sh`
@@ -145,5 +156,6 @@ If you want to run the legacy **C# WinForms Desktop Application** stored in `leg
 
 ---
 
-## 📜 LICENSE & CREDITS
+## LICENSE & CREDITS
+
 © 2026 Developed by **Nguyễn Quốc Đương (DuongDevv)** - Software Engineering Student at Cao Thắng Technical College.
