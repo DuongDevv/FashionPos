@@ -12,7 +12,7 @@
 - **Tính Tiền Khách Đưa & Tiền Thối**: Hỗ trợ nhiều phương thức (Tiền mặt, VNPAY, Momo, Chuyển khoản), tính tiền thối tự động.
 - **In Hóa Đơn (Receipt Modal)**: Hiển thị hóa đơn mã `HD...`, chi tiết đơn hàng, tiền thối và điểm thưởng được cộng.
 
-### 2. 📱 Tra CỨU SĐT KHÁCH HÀNG & TÍCH ĐIỂM TỰ ĐỘNG
+### 2. 📱 TRA CỨU SĐT KHÁCH HÀNG & TÍCH ĐIỂM TỰ ĐỘNG
 - **Tra Cứu Khách Hàng Bằng SĐT**: Nhập số điện thoại khách hàng trực tiếp trên màn hình POS để hiển thị Tên, Điểm hiện có, Tổng chi tiêu và Hạng thẻ (Đồng, Bạc, Vàng, Đen VVIP).
 - **Đăng Ký Thành Viên Mới Nhanh Tại Quầy**: Nếu SĐT chưa đăng ký, hệ thống nổ Modal đăng ký mới 1-click và tự động gán ngay khách hàng mới vào đơn hàng hiện tại!
 - **Tự Động Nâng Hạng Thành Viên**: PostgreSQL Trigger tự động cộng điểm (`10.000đ = 1 điểm`) và tự động nâng hạng thẻ ngay khi thanh toán đơn hàng.
@@ -69,14 +69,12 @@ FashionPos/
 
 ---
 
-## 🚀 HƯỚNG DẪN CÀI ĐẶT & CHẠY DỰ ÁN (TỪ A ĐẾN Z)
+## 🚀 HƯỚNG DẪN CÀI ĐẶT & CHẠY ỨNG DỤNG WEB POS ENTERPRISE
 
 ### 📋 Yêu Cầu Môi Trường:
 - **Node.js**: v18+ (Đã test mượt trên Node.js v26)
 - **.NET SDK**: .NET 8 SDK
 - **Docker & Docker Compose**: Để chạy PostgreSQL 16 & Redis 7
-
----
 
 ### 1️⃣ Bước 1: Clone Repository Về Máy
 ```bash
@@ -84,9 +82,7 @@ git clone https://github.com/DuongDevv/FashionPos.git
 cd FashionPos
 ```
 
----
-
-### 2️⃣ Bước 2: Kích Hoạt 1-Click Startup Script
+### 2️⃣ Bước 2: Kích Hoạt 1-Click Startup Script (Bản Web Enterprise)
 Chạy duy nhất 1 lệnh duy nhất để tự động bật Docker Database, Backend .NET 8 API và Frontend Next.js Web:
 
 ```bash
@@ -96,14 +92,33 @@ chmod +x start.sh stop.sh status.sh
 
 *(Script sẽ tự động dựng Docker PostgreSQL 16 (Port 5434), Redis 7 (Port 6381), Server .NET 8 (Port 5000) và Web POS (Port 3001)!)*
 
----
-
 ### 3️⃣ Bước 3: Truy Cập Ứng Dụng Trên Trình Duyệt
-
 - 🛒 **Web POS Bán Hàng**: [`http://localhost:3001/pos`](http://localhost:3001/pos)
 - 🔑 **Trang Đăng Nhập**: [`http://localhost:3001/login`](http://localhost:3001/login)
 - 📊 **Dashboard Doanh Thu**: [`http://localhost:3001/dashboard`](http://localhost:3001/dashboard)
 - 🌐 **Swagger API Documentation**: [`http://localhost:5000/swagger`](http://localhost:5000/swagger)
+
+---
+
+## 💻 HƯỚNG DẪN CHẠY BẢN LEGACY C# WINFORMS CŨ (NẾU CẦN ĐỐI CHIẾU)
+
+Nếu bạn muốn mở và chạy thử bản desktop **C# WinForms cũ** trong thư mục `legacy_winforms/`:
+
+### 📋 Yêu Cầu Môi Trường WinForms:
+- Hệ điều hành Windows
+- **Visual Studio 2019 / 2022** (Đã cài workload `.NET Desktop Development`)
+- **SQL Server** (SQL Server Express / Enterprise) & SSMS (SQL Server Management Studio)
+
+### 🛠️ Các Bước Thực Hiện:
+1. **Phục hồi Cơ sở dữ liệu SQL Server**:
+   - Mở SSMS, tạo mới Database tên `FashionPOS`.
+   - Mở file SQL `infrastructure/db/Fashion.sql` và bấm **Execute** để tạo bảng và dữ liệu mẫu.
+2. **Cấu hình Chuỗi Kết Nối (Connection String)**:
+   - Mở file `legacy_winforms/Source_FashionPos/DAL/DataHelper.cs` (hoặc `App.config`).
+   - Cập nhật chuỗi kết nối SQL Server của máy bạn: `Server=.\SQLEXPRESS;Database=FashionPOS;Trusted_Connection=True;`.
+3. **Mở Solution và Chạy Ứng Dụng**:
+   - Mở file `legacy_winforms/Source_FashionPos/WindowsFormsApp1.sln` bằng Visual Studio.
+   - Nhấn **F5** để Build và chạy phần mềm WinForms Desktop.
 
 ---
 
