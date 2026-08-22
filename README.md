@@ -89,14 +89,14 @@ FashionPos/
 - **.NET SDK**: .NET 8 SDK
 - **Docker & Docker Compose**: For PostgreSQL 16 & Redis 7
 
-### 1️ Step 1: Clone Repository
+### Step 1: Clone Repository
 
 ```bash
 git clone https://github.com/DuongDevv/FashionPos.git
 cd FashionPos
 ```
 
-### 2️ Step 2: Execute 1-Click Startup Script
+### Step 2: Execute 1-Click Startup Script
 
 Run the automated control script to start Docker containers (PostgreSQL 16, Redis 7), C# .NET 8 API server, and Next.js 16 Web App:
 
@@ -107,7 +107,7 @@ chmod +x start.sh stop.sh status.sh
 
 _(PostgreSQL 16 runs on host port 5434, Redis 7 on port 6381, .NET 8 API on port 5000, and Next.js Web POS on port 3001!)_
 
-### 3️ Step 3: Access Application in Browser
+### Step 3: Access Application in Browser
 
 - 🛒 **Web POS Terminal**: [`http://localhost:3001/pos`](http://localhost:3001/pos)
 - 🔑 **Login Portal**: [`http://localhost:3001/login`](http://localhost:3001/login)
