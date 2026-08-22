@@ -1,0 +1,83 @@
+services:
+  # 1. NestJS Backend API Service
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: fashionpos_api
+    restart: always
+    environment:
+      - NODE_ENV=production
+      - PORT=3000
+      - DATABASE_URL=postgresql://fashionpos_user:FashionPosSecure2026!@postgres:5432/fashionpos_db?schema=public
+      - REDIS_HOST=redis
+      - REDIS_PORT=6379
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    networks:
+      - fashionpos_net
+
+  # 2. PostgreSQL Primary Database
+  postgres:
+    image: postgres:16-alpine
+    container_name: fashionpos_postgres
+    restart: always
+    environment:
+      POSTGRES_USER: fashionpos_user
+      POSTGRES_PASSWORD: FashionPosSecure2026!
+      POSTGRES_DB: fashionpos_db
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./FashionPOS_PostgreSQL_Enterprise.sql:/docker-entrypoint-initdb.d/init.sql
+    ports:
+      - "5434:5432" # Unused host port
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U fashionpos_user -d fashionpos_db"]
+      interval: 3s
+      timeout: 3s
+      retries: 5
+    networks:
+      - fashionpos_net
+
+  # 3. Redis In-Memory Cache & Distributed Lock
+  redis:
+    image: redis:7-alpine
+    container_name: fashionpos_redis
+    restart: always
+    command: redis-server --save 60 1 --loglevel warning
+    volumes:
+      - redis_data:/data
+    ports:
+      - "6381:6379" # Unused host port
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 3s
+      timeout: 3s
+      retries: 5
+    networks:
+      - fashionpos_net
+
+  # 4. Nginx Reverse Proxy & Load Balancer
+  nginx:
+    image: nginx:alpine
+    container_name: fashionpos_nginx
+    restart: always
+    ports:
+      - "8081:80" # Unused host port
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro
+    depends_on:
+      - app
+    networks:
+      - fashionpos_net
+
+networks:
+  fashionpos_net:
+    driver: bridge
+
+volumes:
+  postgres_data:
+  redis_data:

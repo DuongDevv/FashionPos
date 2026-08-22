@@ -1,0 +1,33 @@
+# Dependencies
+node_modules/
+apps/web/node_modules/
+legacy_winforms/Source_FashionPos/packages/
+
+# Next.js Build & Cache
+.next/
+apps/web/.next/
+out/
+build/
+dist/
+
+# .NET Build & Cache
+bin/
+obj/
+apps/api/FashionPos.Api/bin/
+apps/api/FashionPos.Api/obj/
+
+# Environment Variables & Secrets
+.env
+.env.local
+.env.production
+*.pem
+
+# Logs & Temporary Files
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+/tmp/
+~$*.docx
+.DS_Store
+Thumbs.db
